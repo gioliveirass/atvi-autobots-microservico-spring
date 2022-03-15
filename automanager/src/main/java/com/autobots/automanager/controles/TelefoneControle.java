@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.autobots.automanager.entidades.Endereco;
 import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.modelo.ClienteSelecionador;
 import com.autobots.automanager.modelo.TelefoneSelecionador;
@@ -30,5 +31,11 @@ public class TelefoneControle {
 	public Telefone obterTelefone(@PathVariable long id) {
 		List<Telefone> telefones = repositorio.findAll();
 		return selecionador.selecionar(telefones, id);
+	}
+	
+	@GetMapping("/telefones")
+	public List<Telefone> obterTelefone() {
+		List<Telefone> telefones = repositorio.findAll();
+		return telefones;
 	}
 }
