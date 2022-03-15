@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.autobots.automanager.entidades.Endereco;
+import com.autobots.automanager.entidades.Cliente;
 import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.modelo.ClienteSelecionador;
 import com.autobots.automanager.modelo.TelefoneSelecionador;
@@ -37,5 +39,17 @@ public class TelefoneControle {
 	public List<Telefone> obterTelefone() {
 		List<Telefone> telefones = repositorio.findAll();
 		return telefones;
+	}
+	
+	@PostMapping("/cadastro")
+	public void cadastrarTelefone(@RequestBody Cliente cliente) {
+		List<Cliente> clientes = repositorioCliente.findAll();
+		Cliente selecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
+		selecionado.getTelefones().addAll(cliente.getTelefones());
+		
+		// selecionado.setTelefones(cliente.getTelefones());
+		// selecionado.getTelefones().add(cliente.getTelefones());
+		
+		repositorioCliente.save(selecionado);
 	}
 }
