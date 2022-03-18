@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.autobots.automanager.entidades.Cliente;
 import com.autobots.automanager.entidades.Endereco;
 import com.autobots.automanager.modelo.ClienteSelecionador;
+import com.autobots.automanager.modelo.EnderecoAtualizador;
 import com.autobots.automanager.modelo.EnderecoSelecionador;
 import com.autobots.automanager.repositorios.ClienteRepositorio;
 import com.autobots.automanager.repositorios.EnderecoRepositorio;
@@ -42,12 +44,12 @@ public class EnderecoControle {
 		return enderecos;
 	}
 	
-	@PostMapping("/atualizar")
-	public void atualizarEndereco(@RequestBody Cliente cliente) {
-		List<Cliente> clientes = repositorioCliente.findAll();
-		Cliente selecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
-		selecionado.setEndereco(cliente.getEndereco());
-		repositorioCliente.save(selecionado);
+	@PutMapping("/atualizar")
+	public void atualizarEndereco(@RequestBody Cliente atualizacao) {
+		Cliente cliente = repositorioCliente.getById(atualizacao.getId());
+		EnderecoAtualizador atualizador = new EnderecoAtualizador();
+		atualizador.atualizar(cliente.getEndereco(), atualizacao.getEndereco());
+		repositorioCliente.save(cliente);
 	}
 	
 	@DeleteMapping("/excluir")
