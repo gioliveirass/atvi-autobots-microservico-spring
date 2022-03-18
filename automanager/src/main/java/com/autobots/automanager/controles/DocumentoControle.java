@@ -16,7 +16,9 @@ import com.autobots.automanager.entidades.Documento;
 import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.modelo.ClienteAtualizador;
 import com.autobots.automanager.modelo.ClienteSelecionador;
+import com.autobots.automanager.modelo.DocumentoAtualizador;
 import com.autobots.automanager.modelo.DocumentoSelecionador;
+import com.autobots.automanager.modelo.TelefoneAtualizador;
 import com.autobots.automanager.repositorios.ClienteRepositorio;
 import com.autobots.automanager.repositorios.DocumentoRepositorio;
 
@@ -50,6 +52,14 @@ public class DocumentoControle {
 		Cliente selecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
 		selecionado.getDocumentos().addAll(cliente.getDocumentos());
 		repositorioCliente.save(selecionado);
+	}
+	
+	@PutMapping("/atualizar")
+	public void atualizarDocumento(@RequestBody Cliente atualizacao) {
+		Cliente cliente = repositorioCliente.getById(atualizacao.getId());
+		DocumentoAtualizador atualizador = new DocumentoAtualizador();
+		atualizador.atualizar(cliente.getDocumentos(), atualizacao.getDocumentos());
+		repositorioCliente.save(cliente);
 	}
 	
 }
