@@ -12,52 +12,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.autobots.automanager.entidades.Cliente;
+import com.autobots.automanager.entidades.Documento;
 import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.modelo.ClienteAtualizador;
 import com.autobots.automanager.modelo.ClienteSelecionador;
-import com.autobots.automanager.modelo.TelefoneAtualizador;
-import com.autobots.automanager.modelo.TelefoneSelecionador;
+import com.autobots.automanager.modelo.DocumentoSelecionador;
 import com.autobots.automanager.repositorios.ClienteRepositorio;
-import com.autobots.automanager.repositorios.TelefoneRepositorio;
+import com.autobots.automanager.repositorios.DocumentoRepositorio;
 
 @RestController
-@RequestMapping("/telefone")
-public class TelefoneControle {
+@RequestMapping("/documento")
+public class DocumentoControle {
 	@Autowired
-	private TelefoneRepositorio repositorio;
+	private DocumentoRepositorio repositorioDocumento;
 	@Autowired
-	private TelefoneSelecionador selecionador;
+	private DocumentoSelecionador selecionadorDocumento;
 	@Autowired
 	private ClienteRepositorio repositorioCliente;
 	@Autowired
 	private ClienteSelecionador selecionadorCliente;
 	
-	@GetMapping("/telefone/{id}")
-	public Telefone obterTelefone(@PathVariable long id) {
-		List<Telefone> telefones = repositorio.findAll();
-		return selecionador.selecionar(telefones, id);
+	@GetMapping("/documento/{id}")
+	public Documento obterDocumento(@PathVariable long id) {
+		List<Documento> documentos = repositorioDocumento.findAll();
+		return selecionadorDocumento.selecionar(documentos, id);
 	}
 	
-	@GetMapping("/telefones")
-	public List<Telefone> obterTelefone() {
-		List<Telefone> telefones = repositorio.findAll();
-		return telefones;
+	@GetMapping("/documentos")
+	public List<Documento> obterDocumento() {
+		List<Documento> documentos = repositorioDocumento.findAll();
+		return documentos;
 	}
 	
 	@PostMapping("/cadastro")
-	public void cadastrarTelefone(@RequestBody Cliente cliente) {
+	public void cadastrarDocumento(@RequestBody Cliente cliente) {
 		List<Cliente> clientes = repositorioCliente.findAll();
 		Cliente selecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
-		selecionado.getTelefones().addAll(cliente.getTelefones());
+		selecionado.getDocumentos().addAll(cliente.getDocumentos());
 		repositorioCliente.save(selecionado);
-	}
-	
-	@PutMapping("/atualizar")
-	public void atualizarTelefone(@RequestBody Cliente atualizacao) {
-		Cliente cliente = repositorioCliente.getById(atualizacao.getId());
-		TelefoneAtualizador atualizador = new TelefoneAtualizador();
-		atualizador.atualizar(cliente.getTelefones(), atualizacao.getTelefones());
-		repositorioCliente.save(cliente);
 	}
 	
 }
