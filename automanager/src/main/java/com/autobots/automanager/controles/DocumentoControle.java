@@ -3,6 +3,7 @@ package com.autobots.automanager.controles;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +61,16 @@ public class DocumentoControle {
 		DocumentoAtualizador atualizador = new DocumentoAtualizador();
 		atualizador.atualizar(cliente.getDocumentos(), atualizacao.getDocumentos());
 		repositorioCliente.save(cliente);
+	}
+	
+	@DeleteMapping("/excluir/{idDocumento}")
+	public void excluirDocumento(@RequestBody Cliente cliente, @PathVariable long idDocumento) {
+		List<Cliente> clientes = repositorioCliente.findAll();
+		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
+		List<Documento> documentos = clienteSelecionado.getDocumentos();
+		Documento documentoSelecionado = selecionadorDocumento.selecionar(documentos, idDocumento);
+		documentos.remove(documentoSelecionado);
+		repositorioCliente.save(clienteSelecionado);
 	}
 	
 }
