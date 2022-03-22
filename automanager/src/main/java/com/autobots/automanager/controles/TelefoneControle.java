@@ -3,6 +3,7 @@ package com.autobots.automanager.controles;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +25,9 @@ import com.autobots.automanager.repositorios.TelefoneRepositorio;
 @RequestMapping("/telefone")
 public class TelefoneControle {
 	@Autowired
-	private TelefoneRepositorio repositorio;
+	private TelefoneRepositorio repositorioTelefone;
 	@Autowired
-	private TelefoneSelecionador selecionador;
+	private TelefoneSelecionador selecionadorTelefone;
 	@Autowired
 	private ClienteRepositorio repositorioCliente;
 	@Autowired
@@ -34,13 +35,13 @@ public class TelefoneControle {
 	
 	@GetMapping("/telefone/{id}")
 	public Telefone obterTelefone(@PathVariable long id) {
-		List<Telefone> telefones = repositorio.findAll();
-		return selecionador.selecionar(telefones, id);
+		List<Telefone> telefones = repositorioTelefone.findAll();
+		return selecionadorTelefone.selecionar(telefones, id);
 	}
 	
 	@GetMapping("/telefones")
 	public List<Telefone> obterTelefone() {
-		List<Telefone> telefones = repositorio.findAll();
+		List<Telefone> telefones = repositorioTelefone.findAll();
 		return telefones;
 	}
 	
@@ -59,5 +60,14 @@ public class TelefoneControle {
 		atualizador.atualizar(cliente.getTelefones(), atualizacao.getTelefones());
 		repositorioCliente.save(cliente);
 	}
-	
+
+	@DeleteMapping("/excluir/{idTelefone}")
+	public void excluirTelefone(@RequestBody Cliente cliente, @PathVariable long idTelefone) {
+		List<Cliente> clientes = repositorioCliente.findAll();
+		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
+		List<Telefone> telefones = clienteSelecionado.getTelefones();
+		Telefone telefoneSelecionado = selecionadorTelefone.selecionar(telefones, idTelefone);
+		telefones.remove(telefoneSelecionado);
+		repositorioCliente.save(clienteSelecionado);
+	}
 }
