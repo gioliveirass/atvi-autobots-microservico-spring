@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.autobots.automanager.entidades.Cliente;
 import com.autobots.automanager.entidades.Documento;
-import com.autobots.automanager.entidades.Telefone;
-import com.autobots.automanager.modelo.ClienteAtualizador;
+import com.autobots.automanager.services.ClienteDocumento;
 import com.autobots.automanager.modelo.ClienteSelecionador;
 import com.autobots.automanager.modelo.DocumentoAtualizador;
 import com.autobots.automanager.modelo.DocumentoSelecionador;
-import com.autobots.automanager.modelo.TelefoneAtualizador;
 import com.autobots.automanager.repositorios.ClienteRepositorio;
 import com.autobots.automanager.repositorios.DocumentoRepositorio;
 
@@ -63,12 +61,12 @@ public class DocumentoControle {
 		repositorioCliente.save(cliente);
 	}
 	
-	@DeleteMapping("/excluir/{idDocumento}")
-	public void excluirDocumento(@RequestBody Cliente cliente, @PathVariable long idDocumento) {
+	@DeleteMapping("/excluir")
+	public void excluirDocumento(@RequestBody ClienteDocumento listId) {
 		List<Cliente> clientes = repositorioCliente.findAll();
-		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
+		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, listId.getId());
 		List<Documento> documentos = clienteSelecionado.getDocumentos();
-		Documento documentoSelecionado = selecionadorDocumento.selecionar(documentos, idDocumento);
+		Documento documentoSelecionado = selecionadorDocumento.selecionar(documentos, listId.getIdDocumento());
 		documentos.remove(documentoSelecionado);
 		repositorioCliente.save(clienteSelecionado);
 	}

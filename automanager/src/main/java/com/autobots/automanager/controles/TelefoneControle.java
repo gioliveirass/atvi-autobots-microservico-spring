@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.autobots.automanager.entidades.Cliente;
+import com.autobots.automanager.entidades.Documento;
 import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.modelo.ClienteAtualizador;
 import com.autobots.automanager.modelo.ClienteSelecionador;
@@ -20,6 +21,8 @@ import com.autobots.automanager.modelo.TelefoneAtualizador;
 import com.autobots.automanager.modelo.TelefoneSelecionador;
 import com.autobots.automanager.repositorios.ClienteRepositorio;
 import com.autobots.automanager.repositorios.TelefoneRepositorio;
+import com.autobots.automanager.services.ClienteDocumento;
+import com.autobots.automanager.services.ClienteTelefone;
 
 @RestController
 @RequestMapping("/telefone")
@@ -60,13 +63,13 @@ public class TelefoneControle {
 		atualizador.atualizar(cliente.getTelefones(), atualizacao.getTelefones());
 		repositorioCliente.save(cliente);
 	}
-
-	@DeleteMapping("/excluir/{idTelefone}")
-	public void excluirTelefone(@RequestBody Cliente cliente, @PathVariable long idTelefone) {
+	
+	@DeleteMapping("/excluir")
+	public void excluirTelefone(@RequestBody ClienteTelefone listId) {
 		List<Cliente> clientes = repositorioCliente.findAll();
-		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, cliente.getId());
+		Cliente clienteSelecionado = selecionadorCliente.selecionar(clientes, listId.getId());
 		List<Telefone> telefones = clienteSelecionado.getTelefones();
-		Telefone telefoneSelecionado = selecionadorTelefone.selecionar(telefones, idTelefone);
+		Telefone telefoneSelecionado = selecionadorTelefone.selecionar(telefones, listId.getIdTelefone());
 		telefones.remove(telefoneSelecionado);
 		repositorioCliente.save(clienteSelecionado);
 	}
