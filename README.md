@@ -8,7 +8,8 @@
 
 ## <a id="descricao"> Descrição do projeto </a>
 
-Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
+Conjunto de atividades práticas realizadas durante a aula de Desenvolvimento Web III na Fatec, que consiste no desenvolvimento de uma aplicação chamada Autobots. 
+Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endereço, Telefones e Documentos.
 
 > 📌 Status do projeto: Em progresso.
 
@@ -242,7 +243,7 @@ Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
  </details>
  
  <details>
-  <summary> <b> 📞 Telefone (clique para expandir) </b></summary>
+  <summary> <b> 📞 Telefones (clique para expandir) </b></summary>
 
   #### 🔸 Listar todos os telefones
 
