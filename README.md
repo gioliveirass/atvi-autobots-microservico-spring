@@ -23,7 +23,7 @@ Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
 
 ## <a id="rotas"> Rotas </a>
 <details>
-  <summary> <b> 🙋 Cliente </b></summary>
+  <summary> <b> 🙋 Cliente (clique para expandir) </b></summary>
 
   #### 🔸 Listar todos os clientes
 
@@ -191,7 +191,7 @@ Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
  </details>
  
  <details>
-  <summary> <b> 🏠 Endereço </b></summary>
+  <summary> <b> 🏠 Endereço (clique para expandir) </b></summary>
 
   #### 🔸 Listar todos os endereços
 
@@ -242,7 +242,7 @@ Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
  </details>
  
  <details>
-  <summary> <b> 📞 Telefone </b></summary>
+  <summary> <b> 📞 Telefone (clique para expandir) </b></summary>
 
   #### 🔸 Listar todos os telefones
 
@@ -326,7 +326,7 @@ Atividade realizada durante a aula de Desenvolvimento Web III na Fatec.
  </details>
  
  <details>
-  <summary> <b> 🧾 Documentos </b></summary>
+  <summary> <b> 🧾 Documentos (clique para expandir) </b></summary>
 
   #### 🔸 Listar todos os documentos
 
