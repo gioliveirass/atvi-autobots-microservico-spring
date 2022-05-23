@@ -31,7 +31,7 @@ public class AdicionadorLinkDocumento implements AdicionadorLink<Documento> {
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.obterDocumento())
-				.withRel("clientes");
+				.withRel("Documentos");
 		objeto.add(linkProprio);
 	}
 }
