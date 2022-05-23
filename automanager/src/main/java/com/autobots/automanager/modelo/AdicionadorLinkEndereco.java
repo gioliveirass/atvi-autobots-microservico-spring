@@ -31,7 +31,7 @@ public class AdicionadorLinkEndereco implements AdicionadorLink<Endereco> {
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.obterEnderecos())
-				.withRel("Endereco");
+				.withRel("enderecos");
 		objeto.add(linkProprio);
 	}
 }
