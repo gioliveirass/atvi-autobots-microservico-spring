@@ -32,7 +32,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/cliente/clientes 
+  http://localhost:5000/clientes 
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -43,7 +43,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/cliente/cliente/{ID}
+  http://localhost:5000/cliente/{ID}
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -200,7 +200,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/endereco/enderecos
+  http://localhost:5000/enderecos
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -211,7 +211,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/endereco/endereco/{ID}
+  http://localhost:5000/endereco/{ID}
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -251,7 +251,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/telefone/telefones
+  http://localhost:5000/telefones
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -262,7 +262,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/telefone/telefone/{ID}
+  http://localhost:5000/telefone/{ID}
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -335,7 +335,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/documento/documentos
+  http://localhost:5000/documentos
   ```
 
   Body da requisição: A requisição não possuí body.
@@ -346,7 +346,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
   Url da rota:
   ``` 
-  http://localhost:5000/documento/documento/{ID}
+  http://localhost:5000/documento/{ID}
   ```
 
   Body da requisição: A requisição não possuí body.
