@@ -7,11 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.autobots.automanager.modelo.AdicionadorLinkVeiculo;
+import com.autobots.automanager.modelo.UsuarioSelecionador;
 import com.autobots.automanager.modelo.VeiculoSelecionador;
+import com.autobots.automanager.entidades.Usuario;
 import com.autobots.automanager.entidades.Veiculo;
+import com.autobots.automanager.repositorios.UsuarioRepositorio;
 import com.autobots.automanager.repositorios.VeiculoRepositorio;
 
 
@@ -20,9 +25,13 @@ public class VeiculoControle {
 	@Autowired
 	private VeiculoRepositorio repositorio;
 	@Autowired
+	private UsuarioRepositorio repositorioUsuario;
+	@Autowired
 	private AdicionadorLinkVeiculo adicionadorLink;
 	@Autowired
 	private VeiculoSelecionador selecionador;
+	@Autowired
+	private UsuarioSelecionador selecionadorUsuario;
 	
 	@GetMapping("/veiculo/{id}")
 	public ResponseEntity<Veiculo> obterVeiculo(@PathVariable long id) {
@@ -51,5 +60,23 @@ public class VeiculoControle {
 			ResponseEntity<List<Veiculo>> resposta = new ResponseEntity<>(veiculos, HttpStatus.FOUND);
 			return resposta;
 		}
+	}
+	
+	@PostMapping("/veiculo/cadastro")
+	public ResponseEntity<?> cadastrarVeiculo(@RequestBody Veiculo veiculoNovo) {
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		long usuarioID = veiculoNovo.getProprietario().getId();
+		List<Usuario> usuarios = repositorioUsuario.findAll();
+		
+		Usuario selecionado = selecionadorUsuario.selecionar(usuarios, usuarioID);
+		
+		if (selecionado != null) {
+			selecionado.getVeiculos().add(veiculoNovo);
+			repositorioUsuario.save(selecionado);
+			status = HttpStatus.CREATED;
+		}
+		
+		return new ResponseEntity<>(status);
 	}
 }
