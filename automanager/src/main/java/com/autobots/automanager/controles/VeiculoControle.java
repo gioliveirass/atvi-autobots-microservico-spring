@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.autobots.automanager.modelo.AdicionadorLinkVeiculo;
 import com.autobots.automanager.modelo.UsuarioSelecionador;
 import com.autobots.automanager.modelo.VeiculoSelecionador;
+import com.autobots.automanager.entidades.Empresa;
 import com.autobots.automanager.entidades.Usuario;
 import com.autobots.automanager.entidades.Veiculo;
 import com.autobots.automanager.repositorios.UsuarioRepositorio;
 import com.autobots.automanager.repositorios.VeiculoRepositorio;
+import com.autobots.automanager.services.UsuarioVeiculo;
 
 
 @RestController
@@ -63,16 +65,14 @@ public class VeiculoControle {
 	}
 	
 	@PostMapping("/veiculo/cadastro")
-	public ResponseEntity<?> cadastrarVeiculo(@RequestBody Veiculo veiculoNovo) {
+	public ResponseEntity<?> cadastrarVeiculo(@RequestBody UsuarioVeiculo informacoesVeiculoNovo) {
 		HttpStatus status = HttpStatus.CONFLICT;
 		
-		long usuarioID = veiculoNovo.getProprietario().getId();
 		List<Usuario> usuarios = repositorioUsuario.findAll();
-		
-		Usuario selecionado = selecionadorUsuario.selecionar(usuarios, usuarioID);
+		Usuario selecionado = selecionadorUsuario.selecionar(usuarios, informacoesVeiculoNovo.getId());
 		
 		if (selecionado != null) {
-			selecionado.getVeiculos().add(veiculoNovo);
+			selecionado.getVeiculos().add(informacoesVeiculoNovo.getVeiculo());
 			repositorioUsuario.save(selecionado);
 			status = HttpStatus.CREATED;
 		}
