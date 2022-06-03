@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.autobots.automanager.entidades.Cliente;
 import com.autobots.automanager.entidades.Empresa;
-import com.autobots.automanager.entidades.Telefone;
 import com.autobots.automanager.entidades.Usuario;
 import com.autobots.automanager.modelo.AdicionarLinkUsuario;
 import com.autobots.automanager.modelo.EmpresaSelecionador;
