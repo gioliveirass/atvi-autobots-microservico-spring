@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.autobots.automanager.entidades.Cliente;
 import com.autobots.automanager.entidades.Empresa;
 import com.autobots.automanager.modelo.AdicionarLinkEmpresa;
 import com.autobots.automanager.modelo.EmpresaSelecionador;
@@ -51,5 +53,15 @@ public class EmpresaControle {
 			ResponseEntity<List<Empresa>> resposta = new ResponseEntity<>(empresas, HttpStatus.FOUND);
 			return resposta;
 		}
+	}
+	
+	@PostMapping("/empresa/cadastro")
+	public ResponseEntity<?> cadastrarEmpresa(@RequestBody Empresa empresaNova) {
+		HttpStatus status = HttpStatus.CONFLICT;
+		if (empresaNova.getId() == null) {
+			repositorio.save(empresaNova);
+			status = HttpStatus.CREATED;
+		}
+		return new ResponseEntity<>(status);
 	}
 }
