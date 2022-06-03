@@ -168,7 +168,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 ---
 ---
 
-⚠️ Você pode baixar a pasta de exemplos de requisições para serem importadas e testadas no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)!
+⚠️ Você pode baixar a pasta de exemplos de requisições para ser importada no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)! Dessa forma, você conseguirá executar testes da aplicação de forma mais rápida utilizando requests já prontas.
 
 <a href="#topo">↑ voltar ao topo </a>
 
