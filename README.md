@@ -19,6 +19,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white)
 ![Insomnia](https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white)
 
 <a href="#topo">↑ voltar ao topo </a>
@@ -167,7 +168,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 ---
 ---
 
-Você pode baixar a pasta de exemplos de requisições para serem importadas e testadas no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)!
+⚠️ Você pode baixar a pasta de exemplos de requisições para serem importadas e testadas no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)!
 
 <a href="#topo">↑ voltar ao topo </a>
 
