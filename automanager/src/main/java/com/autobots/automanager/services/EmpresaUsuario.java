@@ -1,5 +1,6 @@
 package com.autobots.automanager.services;
 
+import com.autobots.automanager.adaptadores.UsuarioCadastroAdaptador;
 import com.autobots.automanager.entidades.Usuario;
 
 import lombok.Data;
@@ -10,5 +11,5 @@ import lombok.Setter;
 @Setter
 public class EmpresaUsuario {
 	private long id;
-	private Usuario usuario;
+	private UsuarioCadastroAdaptador usuario;
 }
