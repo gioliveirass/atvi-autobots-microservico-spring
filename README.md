@@ -163,6 +163,11 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 |   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/mercadoria/cadastro`  | Cadastro de mercadoria                 |      
 
 </details
+	
+---
+---
+
+Você pode baixar a pasta de exemplos de requisições para serem importadas e testadas no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)!
 
 <a href="#topo">↑ voltar ao topo </a>
 
