@@ -19,400 +19,150 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Insomnia](https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white)
 
 <a href="#topo">↑ voltar ao topo </a>
 
 ## <a id="rotas"> Rotas </a>
+
+###  Rotas do CRUD de Cliente
+
 <details>
-  <summary> <b> 🙋 Cliente (clique para expandir) </b></summary>
-
-  #### 🔸 Listar todos os clientes
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/clientes 
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Listar clientes pelo ID
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/cliente/{ID}
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Cadastrar cliente
-
-  Método utilizado: ```POST```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/cliente/cadastro
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, como o exemplo a seguir.
-  ```
-  {
-    "nome": "Pedro Alcântara de Bragança e Bourbon",
-    "nomeSocial": "Dom Pedro",
-    "dataNascimento": "2002-06-15T11:21:19.924+00:00",
-    "dataCadastro": "2022-03-11T11:21:19.924+00:00",
-    "documentos": [
-      {
-        "tipo": "RG",
-        "numero": "1550"
-      },
-      {
-        "tipo": "RG",
-        "numero": "00100000001"
-      }
-    ],
-    "endereco": {
-      "estado": "Rio de Janeiro",
-      "cidade": "Rio de Janeiro",
-      "bairro": "Copacabana",
-      "rua": "Avenida Atlântica",
-      "numero": "1702",
-      "codigoPostal": "22021001",
-      "informacoesAdicionais": "Hotel Copacabana palace"
-    },
-    "telefones": [
-      {
-        "ddd": "21",
-        "numero": "981234576"
-      }
-    ]
-  }
-  ```
-  
-  #### 🔸 Atualizar cliente pelo ID
-
-  Método utilizado: ```PUT```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/cliente/atualizar
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, já com os campos editados e o ID passado deve ser o ID do cliente que será editado, como o exemplo a seguir.
-  ```
-  {
-    "id": 1,
-    "nome": "Pedro Alcântara",
-    "nomeSocial": "Dom Pedro",
-    "dataNascimento": "2002-06-15T11:21:19.924+00:00",
-    "dataCadastro": "2022-03-11T11:21:19.924+00:00",
-    "documentos": [
-      {
-          "id": 1,
-          "tipo": "RG",
-          "numero": "1500"
-        },
-        {
-          "id": 2,
-          "tipo": "RG",
-          "numero": "00000000001"
-        }
-      ],
-      "endereco": {
-        "id": 1,
-        "estado": "Rio de Janeiro",
-        "cidade": "Rio de Janeiro",
-        "bairro": "Copacabana",
-        "rua": "Avenida Atlântica",
-        "numero": "1702",
-        "codigoPostal": "22021001",
-        "informacoesAdicionais": "Hotel Copacabana palace"
-      },
-      "telefones": [
-        {
-          "id": 1,
-          "ddd": "21",
-          "numero": "981234576"
-        }
-      ]
-    }
-  ```
-  
-  #### 🔸 Deletar cliente pelo ID
-
-  Método utilizado: ```DELETE```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/cliente/excluir
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, onde o ID passado deve ser o ID do cliente que será deletado, como o exemplo a seguir.
-  ```
-    {
-      "id": 6,
-      "nome": "Pedro Alcântara",
-      "nomeSocial": "Dom Pedro",
-      "dataNascimento": "2002-06-15T11:21:19.924+00:00",
-      "dataCadastro": "2022-03-11T11:21:19.924+00:00",
-      "documentos": [
-        {
-          "id": 1,
-          "tipo": "RG",
-          "numero": "1500"
-        },
-        {
-          "id": 2,
-          "tipo": "RG",
-          "numero": "00000000001"
-        }
-      ],
-      "endereco": {
-        "id": 1,
-        "estado": "Rio de Janeiro",
-        "cidade": "Rio de Janeiro",
-        "bairro": "Copacabana",
-        "rua": "Avenida Atlântica",
-        "numero": "1702",
-        "codigoPostal": "22021001",
-        "informacoesAdicionais": "Hotel Copacabana palace"
-      },
-      "telefones": [
-        {
-          "id": 1,
-          "ddd": "21",
-          "numero": "981234576"
-        }
-      ]
-  }
-  ```
- </details>
- 
- <details>
-  <summary> <b> 🏠 Endereço (clique para expandir) </b></summary>
-
-  #### 🔸 Listar todos os endereços
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/enderecos
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Listar endereço pelo ID
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/endereco/{ID}
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Atualizar endereço pelo ID
-
-  Método utilizado: ```PUT```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/endereco/atualizar
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, já com os campos do endereço editados e o ID passado deve ser o ID do Cliente que terá o endereço editado, como o exemplo a seguir.
-  ```
-  {
-    "id": 1,
-    "endereco": {
-      "estado": "São Paulo",
-      "cidade": "Rio de Janeiro",
-      "bairro": "Copacabana",
-      "rua": "Avenida Atlântica",
-      "numero": "1702",
-      "codigoPostal": "22021001",
-      "informacoesAdicionais": "Hotel Copacabana palace"
-    }
-  }
-  ```
- </details>
- 
- <details>
-  <summary> <b> 📞 Telefones (clique para expandir) </b></summary>
-
-  #### 🔸 Listar todos os telefones
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/telefones
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Listar telefone pelo ID
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/telefone/{ID}
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Cadastrar telefone
-
-  Método utilizado: ```POST```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/telefone/cadastro
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, onde o ID passado é o ID do cliente que receberá o telefone, como o exemplo a seguir.
-  ```
-  {
-    "id": 1,
-    "telefones": [{
-        "ddd": "32",
-        "numero": "568525550003232"
-     }]
-   }
-  ```
-  
-  #### 🔸 Atualizar telefone pelo ID
-
-  Método utilizado: ```PUT```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/telefone/atualizar
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, com os campos do telefone editados e o ID do telefone passado deve ser o ID do telefone que será editado, assim como o ID do cliente passado deve ser o ID do cliente que será editado, como o exemplo a seguir.
-  ```
-  {
-    "id": 1,
-    "telefones": [{
-        "id": 1,
-        "ddd": "12",
-        "numero": "00013232"
-     }]
-  }
-  ```
-  
-  #### 🔸 Deletar telefone pelo ID
-
-  Método utilizado: ```DELETE```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/telefone/excluir
-  ```
-
-  Body da requisição: Json contendo o ID do cliente que terá o telefone excluído e o ID do telefone que será excluído, como o exemplo a seguir.
-  ```
-   {
-    "id": 1,
-    "idTelefone":1
-   }
-  ```
- </details>
- 
- <details>
-  <summary> <b> 🧾 Documentos (clique para expandir) </b></summary>
-
-  #### 🔸 Listar todos os documentos
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/documentos
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Listar documento pelo ID
-
-  Método utilizado: ```GET```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/documento/{ID}
-  ```
-
-  Body da requisição: A requisição não possuí body.
-
-  #### 🔸 Cadastrar documento
-
-  Método utilizado: ```POST```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/documento/cadastro
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, onde o ID passado é o ID do cliente que receberá o documento, como o exemplo a seguir.
-  ```
-  {
-		"id": 1,
-		"documentos": [
-			{
-				"tipo": "RG",
-				"numero": "15670"
-			}
-		]
-  }
-  ```
-  
-  #### 🔸 Atualizar documento pelo ID
-
-  Método utilizado: ```PUT```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/documento/atualizar
-  ```
-
-  Body da requisição: Json com um objeto do tipo Cliente, com os campos do documento editados e o ID do documento passado deve ser o ID do documento que será editado, assim como o ID do cliente passado deve ser o ID do cliente que será editado, como o exemplo a seguir.
-  ```
-  {
-		"id": 1,
-		"documentos": [
-			{
-				"id": 1,
-				"tipo": "RG",
-				"numero": "1111111"
-			}
-		]
-	}
-  ```
-  
-  #### 🔸 Deletar telefone pelo ID
-
-  Método utilizado: ```DELETE```
-
-  Url da rota:
-  ``` 
-  http://localhost:5000/documento/excluir
-  ```
-
-  Body da requisição: Json contendo o ID do cliente que terá o documento excluído e o ID do documento que será excluído, como o exemplo a seguir.
-  ```
-  {
-    "id": 1,
-	  "idDocumento":1
-  }
-  ```
- </details>
+  <summary> Clique aqui para ver as rotas do CRUD de cliente!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                     | Ação                               |
+| ----------------------------------------------------------------------: | :----------------------------------------| :------------------------------    |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/clientes`         | Listagem de clientes               |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/cliente/{ID}`     | Dados de um cliente específico     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/cliente/cadastro` | Cadastro de cliente                |
+|    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | `http://localhost:5000/cliente/atualizar`| Alteração dos dados de um cliente  |
+| [![](https://img.shields.io/badge/DELETE-CD853F?style=for-the-badge)]() | `http://localhost:5000/cliente/excluir`  | Exclusão de um cliente             |
+
+</details
+	
+---
+---
+
+ ### Rotas do CRUD de Endereço
+	
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de endereço!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                       | Ação                                |
+| ----------------------------------------------------------------------: | :------------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/enderecos`          | Listagem de endereços               |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/endereco/{ID}`      | Dados de um endereço específico     |
+|    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | `http://localhost:5000/endereco/atualizar` | Alteração dos dados de um endereço  |
+
+</details
+	
+---
+---
+	
+### Rotas do CRUD de Telefone
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de telefone!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                      | Ação                                |
+| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/telefones`         | Listagem de telefones               |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/telefone/{ID}`     | Dados de um telefone específico     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/telefone/cadastro` | Cadastro de telefone                |
+|    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | `http://localhost:5000/telefone/atualizar`| Alteração dos dados de um telefone  |
+| [![](https://img.shields.io/badge/DELETE-CD853F?style=for-the-badge)]() | `http://localhost:5000/telefone/excluir`  | Exclusão de um telefone             |
+
+</details
+	
+---
+---
+	
+### Rotas do CRUD de Documento
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de documento!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                        | Ação                                |
+| ----------------------------------------------------------------------: | :-------------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/documentos`          | Listagem de documentos              |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/documento/{ID}`      | Dados de um documento específico    |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/documento/cadastro`  | Cadastro de documento               |
+|    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | `http://localhost:5000/documento/atualizar` | Alteração dos dados de um documento |
+
+</details
+	
+---
+---
+
+### Rotas do CRUD de Empresa
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de empresa!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                      | Ação                                |
+| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/empresas`          | Listagem de empresas                |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/empresa/{ID}`      | Dados de uma empresa específics     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/empresa/cadastro`  | Cadastro de empresa                 |      
+
+</details
+	
+---
+---
+	
+
+### Rotas do CRUD de Usuário
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de usuário!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                      | Ação                                |
+| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuarios`          | Listagem de usuarios                |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuario/{ID}`      | Dados de uma usuario específics     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/usuario/cadastro`  | Cadastro de usuario                 |      
+
+</details
+	
+---
+---
+
+### Rotas do CRUD de Veículo
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de veiculo!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                      | Ação                                |
+| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/veiculos`          | Listagem de veiculos                |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/veiculo/{ID}`      | Dados de um veiculo específico      |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/veiculo/cadastro`  | Cadastro de veiculo                 |      
+
+</details
+	
+---
+---
+	
+### Rotas do CRUD de Mercadoria
+
+<details>
+  <summary> Clique aqui para ver as rotas do CRUD de mercadoria!</summary>
+<br>
+
+| Tipo                                                                    | Rota                                      | Ação                                |
+| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/mercadorias`          | Listagem de mercadorias                |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/mercadoria/{ID}`      | Dados de uma mercadoria específics     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/mercadoria/cadastro`  | Cadastro de mercadoria                 |      
+
+</details
 
 <a href="#topo">↑ voltar ao topo </a>
 
