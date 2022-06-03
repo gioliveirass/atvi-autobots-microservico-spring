@@ -24,9 +24,9 @@ public abstract class Credencial extends RepresentationModel<Credencial> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
-	private Date criacao;
+	private Date criacao = new Date(System.currentTimeMillis());;
 	@Column()
-	private Date ultimoAcesso;
+	private Date ultimoAcesso = new Date(System.currentTimeMillis());;
 	@Column(nullable = false)
 	private boolean inativo;
 }

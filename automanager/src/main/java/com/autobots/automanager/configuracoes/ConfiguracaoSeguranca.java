@@ -1,4 +1,4 @@
-package configuracoes;
+package com.autobots.automanager.configuracoes;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

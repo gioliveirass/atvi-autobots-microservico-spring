@@ -69,7 +69,7 @@ public class UsuarioControle {
 		Empresa selecionada = selecionadorEmpresa.selecionar(empresas, dadosUsuarioNovo.getId());
 		
 		if (selecionada != null) {
-			Usuario dadosUsuarioNovoAdaptado = dadosUsuarioNovo.getUsuario().adaptar();
+			Usuario dadosUsuarioNovoAdaptado = dadosUsuarioNovo.getUsuarioAdaptar().adaptar();
 			selecionada.getUsuarios().add(dadosUsuarioNovoAdaptado);
 			repositorioEmpresa.save(selecionada);
 			status = HttpStatus.CREATED;

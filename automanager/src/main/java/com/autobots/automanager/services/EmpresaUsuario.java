@@ -11,5 +11,5 @@ import lombok.Setter;
 @Setter
 public class EmpresaUsuario {
 	private long id;
-	private UsuarioCadastroAdaptador usuario;
+	private UsuarioCadastroAdaptador usuarioAdaptar;
 }

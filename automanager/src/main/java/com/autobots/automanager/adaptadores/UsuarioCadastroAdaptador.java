@@ -25,8 +25,9 @@ public class UsuarioCadastroAdaptador implements Adaptador<Usuario> {
 		usuario.getCredenciais().add(credencialUsuarioSenha);
 		
 		CredencialCodigoBarra credencialCodigoBarra = new CredencialCodigoBarra();
-		credencialCodigoBarra.setCodigo(UUID.randomUUID().getMostSignificantBits());
+		credencialCodigoBarra.setCodigo(1234);
 		usuario.getCredenciais().add(credencialCodigoBarra);
+		
 		return this.usuario;
 	}
 }

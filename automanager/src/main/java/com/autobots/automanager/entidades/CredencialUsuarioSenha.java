@@ -14,6 +14,6 @@ import lombok.Setter;
 public class CredencialUsuarioSenha extends Credencial {
 	@Column(nullable = false, unique = true)
 	private String nomeUsuario;
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String senha;
 }
