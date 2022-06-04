@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.autobots.automanager.entidades.Empresa;
 import com.autobots.automanager.entidades.Usuario;
+import com.autobots.automanager.entidades.UsuarioPerfil;
 import com.autobots.automanager.modelo.AdicionarLinkUsuario;
 import com.autobots.automanager.modelo.EmpresaSelecionador;
 import com.autobots.automanager.modelo.UsuarioSelecionador;
@@ -72,6 +73,21 @@ public class UsuarioControle {
 			Usuario dadosUsuarioNovoAdaptado = dadosUsuarioNovo.getUsuarioAdaptar().adaptar();
 			selecionada.getUsuarios().add(dadosUsuarioNovoAdaptado);
 			repositorioEmpresa.save(selecionada);
+			status = HttpStatus.CREATED;
+		}
+		
+		return new ResponseEntity<>(status);
+	}
+	
+	@PostMapping("/usuario/adicionarPerfil")
+	public ResponseEntity<?> adicionarPerfil(@RequestBody UsuarioPerfil dadosUsuarioPerfil) {
+		HttpStatus status = HttpStatus.CONFLICT;
+		List<Usuario> usuarios = repositorio.findAll();
+		Usuario selecionado = selecionador.selecionar(usuarios, dadosUsuarioPerfil.getId());
+		
+		if (selecionado != null) {
+			selecionado.getPerfis().add(dadosUsuarioPerfil.getPerfil());
+			repositorio.save(selecionado);
 			status = HttpStatus.CREATED;
 		}
 		
