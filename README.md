@@ -169,7 +169,7 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
 ---
 ---
 
-⚠️ Você pode baixar a pasta de exemplos de requisições para ser importada no [Insomnia](https://insomnia.rest/download) clicando [aqui](#)! Dessa forma, você conseguirá executar testes da aplicação de forma mais rápida utilizando requests já prontas.
+⚠️ Você pode baixar a pasta de exemplos de requisições para ser importada no [Insomnia](https://insomnia.rest/download) clicando [aqui]([#](https://github.com/gioliveirass/fatec-DW3-autobots/raw/master/.github/requests.rar))! Dessa forma, você conseguirá executar testes da aplicação de forma mais rápida utilizando requests já prontas.
 
 <a href="#topo">↑ voltar ao topo </a>
 
