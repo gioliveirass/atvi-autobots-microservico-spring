@@ -15,7 +15,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 		
-	private static final String[] rotasPublicas = { "/","/usuarios","/usuario/**", "/empresas", "/empresa/**" };
+	private static final String[] rotasPublicas = { "/","/usuarios","/usuario/**", "/empresas", "/empresa/**", "/mercadoria/**", "/veiculo/**", "/veiculos", "/mercadorias" };
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
