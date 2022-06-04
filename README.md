@@ -123,11 +123,12 @@ Durante a primeira atividade, foi necessário criar um CRUD para Cliente, Endere
   <summary> Clique aqui para ver as rotas do CRUD de usuário!</summary>
 <br>
 
-| Tipo                                                                    | Rota                                      | Ação                                |
-| ----------------------------------------------------------------------: | :-----------------------------------------| :-----------------------------------|
-|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuarios`          | Listagem de usuarios                |
-|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuario/{ID}`      | Dados de uma usuario específics     |
-|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/usuario/cadastro`  | Cadastro de usuario                 |      
+| Tipo                                                                    | Rota                                             | Ação                                |
+| ----------------------------------------------------------------------: | :------------------------------------------------| :-----------------------------------|
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuarios`                 | Listagem de usuarios                |
+|    [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | `http://localhost:5000/usuario/{ID}`             | Dados de uma usuario específics     |
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/usuario/cadastro`         | Cadastro de usuario                 | 
+|   [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | `http://localhost:5000/usuario/adicionarPerfil`  | Adicionar tipo de perfil do usuário | 
 
 </details
 	
